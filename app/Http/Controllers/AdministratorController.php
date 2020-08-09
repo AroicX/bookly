@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Customer;
 use App\Reservation;
 use App\Room;
@@ -81,10 +82,18 @@ class AdministratorController extends Controller
 
     public function reservationsCreate(Request $request)
     {
+        $found = Room::where('room_id', $request->room)->first();
+
+        $payed = $found->price * $request->stay;
+
         $reservation = new Reservation();
+        $reservation->staff_id = Auth::user();
         $reservation->reservation_id = $this->generateID(12);
         $reservation->customer_id = $request->customers;
         $reservation->room_id = $request->room;
+        $reservation->payment_by = $request->payment;
+        $reservation->stay = $request->stay;
+        $reservation->amount = $payed;
         $reservation->save();
 
         $data = ['status' => 'booked'];

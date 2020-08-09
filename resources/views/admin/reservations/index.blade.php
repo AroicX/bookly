@@ -128,7 +128,11 @@
                                 <th>Customer</th>
                                 <th>Room Type</th>
                                 <th>Room Number</th>
+                                <th>Room Price</th>
                                 <th>Floor</th>
+                                <th>Payment</th>
+                                <th>Stay</th>
+                                <th>Amount</th>
                                 <th>Room Status</th>
 
                                 <th>Actions</th>
@@ -155,7 +159,11 @@
                                         @endif
                                     </td>
                                     <td>{{$reservation->Room->room_id}}</td>
+                                    <td>₦ {{$reservation->Room->price}}</td>
                                     <td>{{$reservation->Room->floor}}</td>
+                                    <td>{{$reservation->payment_by}}</td>
+                                    <td>{{$reservation->stay}}</td>
+                                    <td>₦ {{$reservation->amount}}</td>
 
                                     <td>
                                         @if($reservation->Room->status === 'available')
@@ -220,11 +228,25 @@
                             <select name="room" class="form-control">
                                 <option value="">--Select Room --</option>
                                 @foreach($rooms  as $key => $room)
-                                    <option class="transform" value="{{$room->room_id}}">{{strtoupper($room->room_type)}} AVAILABLE ON FLOOR {{$room->floor}}</option>
+                            <option class="transform" value="{{$room->room_id}}">{{strtoupper($room->room_type)}} AVAILABLE ON FLOOR {{$room->floor}} - ₦ {{$room->price}}</option>
 
                                 @endforeach
 
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment">Payment by</label>
+                            <select name="payment" class="form-control">
+                                <option value="">--Select payment --</option>
+                                <option value="transfer">By Transfer</option>
+                                <option value="cash">By Cash</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="stay">Number of Days</label>
+                           <input type="number" name="stay" class="form-control">
                         </div>
 
                         <div class="form-group">

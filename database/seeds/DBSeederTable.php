@@ -24,6 +24,7 @@ class DBSeederTable extends Seeder
         for ($i = 0; $i <= 100; $i++) {
             DB::table('rooms')->insert([
                 'room_id' => '0' . $i,
+                'price' => '2000',
                 'floor' => $i + 1,
             ]);
         }

@@ -17,8 +17,13 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('room_id');
             $table->string('floor')->nullable();
-            $table->enum('room_type',['basic','standard','executive'])->default('basic');
-            $table->enum('status',['available','booked'])->default('available');
+            $table->string('price');
+            $table
+                ->enum('room_type', ['basic', 'standard', 'executive'])
+                ->default('basic');
+            $table
+                ->enum('status', ['available', 'booked'])
+                ->default('available');
             $table->timestamps();
         });
     }
