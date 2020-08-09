@@ -5,7 +5,6 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-
 class DBSeederTable extends Seeder
 {
     /**
@@ -18,10 +17,9 @@ class DBSeederTable extends Seeder
         DB::table('users')->insert([
             'name' => 'Administrator',
             'email' => 'admin@app.com',
-            'password' => bcrypt('_Arowosegbe1'),
+            'password' => bcrypt('password'),
+            'role' => 'admin',
         ]);
-
-        $faker = Faker::create('App\Courses');
 
         for ($i = 0; $i <= 100; $i++) {
             DB::table('rooms')->insert([
@@ -29,7 +27,6 @@ class DBSeederTable extends Seeder
                 'floor' => $i + 1,
             ]);
         }
-
 
         $customers = Faker::create('App\Customers');
 
@@ -39,10 +36,10 @@ class DBSeederTable extends Seeder
                 'fullname' => $customers->name,
                 'email' => $customers->email,
                 'number' => $customers->phoneNumber,
-                'address' => $customers->address
+                'address' => $customers->address,
+                'nationality' => 'Nigeria',
+                'gender' => 'Male',
             ]);
         }
-
-
     }
 }

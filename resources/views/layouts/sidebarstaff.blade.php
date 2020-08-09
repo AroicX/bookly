@@ -36,13 +36,13 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="{{url('/admin/reservations')}}">
           <i class="fas fa-fw fa-book"></i>
           <span>Reservations</span></a>
   </li>
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="{{url('/admin/reservations')}}">
           <i class="fas fa-fw fa-money"></i>
           <span>Payments</span></a>
   </li>

@@ -31,6 +31,14 @@
                     <label for="address">Address</label>
                     <input type="text" class="form-control" name="address" >
                 </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" >
+                </div>
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" >
+                </div>
 
 
                 <div class="form-group">
@@ -58,6 +66,8 @@
                                 <th>Email</th>
                                 <th>Number</th>
                                 <th>Address</th>
+                                <th>Nigeria</th>
+                                <th>Gender</th>
                                 <th>Actions</th>
 
                             </tr>
@@ -74,6 +84,8 @@
                                         <td>{{$customer->email}}</td>
                                         <td>{{$customer->number}}</td>
                                         <td style="font-size: 9px">{{$customer->address}}</td>
+                                        <td style="font-size: 12px">{{$customer->nationality}}</td>
+                                        <td style="font-size: 12px">{{$customer->gender}}</td>
 
                                         <td><i class="fa fa-fw fa-envelope-open-o"></i></td>
 
