@@ -22,6 +22,8 @@ class CreateReservationsTable extends Migration
             $table->string('payment_by');
             $table->string('amount');
             $table->string('stay');
+            $table->string('arrival');
+            $table->string('departure');
             $table->timestamps();
         });
     }

@@ -21,29 +21,25 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::group(['prefix' => 'admin'],function(){
-    Route::group(['prefix' => 'staffs'],function(){
-        Route::get('/','AdministratorController@staffs');
-        Route::post('/create','AdministratorController@createStaff');
-
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'staffs'], function () {
+        Route::get('/', 'AdministratorController@staffs');
+        Route::post('/create', 'AdministratorController@createStaff');
     });
 
-    Route::group(['prefix' => 'customers'],function(){
-        Route::get('/','AdministratorController@customers');
-        Route::post('/create','AdministratorController@createCustomer');
-
+    Route::group(['prefix' => 'customers'], function () {
+        Route::get('/', 'AdministratorController@customers');
+        Route::post('/create', 'AdministratorController@createCustomer');
     });
 
-    Route::group(['prefix' => 'rooms'],function(){
-        Route::get('/','AdministratorController@rooms');
+    Route::group(['prefix' => 'rooms'], function () {
+        Route::get('/', 'AdministratorController@rooms');
     });
 
-
-    Route::group(['prefix' => 'reservations'],function(){
-        Route::get('/','AdministratorController@reservations');
-        Route::post('/create','AdministratorController@reservationsCreate');
-
+    Route::group(['prefix' => 'reservations'], function () {
+        Route::get('/', 'AdministratorController@reservations');
+        Route::get('/find', 'AdministratorController@findReservations');
+        Route::post('/update', 'AdministratorController@updateReservations');
+        Route::post('/create', 'AdministratorController@reservationsCreate');
     });
 });
-

@@ -92,6 +92,8 @@ class AdministratorController extends Controller
         $reservation->customer_id = $request->customers;
         $reservation->room_id = $request->room;
         $reservation->payment_by = $request->payment;
+        $reservation->arrival = $request->arrival;
+        $reservation->departure = $request->departure;
         $reservation->stay = $request->stay;
         $reservation->amount = $payed;
         $reservation->save();
@@ -108,6 +110,55 @@ class AdministratorController extends Controller
             'rooms',
             'customers'
         );
+    }
+
+    public function updateReservations(Request $request)
+    {
+        // return $request->all();
+
+        $getReservation = Reservation::where('id', $request->reservation_id)
+            ->with('Customer', 'Room')
+            ->first();
+
+        $found = Room::where('room_id', $request->room)->first();
+        Room::where('room_id', $getReservation->room->room_id)->update([
+            'status' => 'available',
+        ]);
+
+        $payed = $found->price * $request->stay;
+
+        $data = [
+            'customer_id' => $request->customers,
+            'room_id' => $request->room,
+            'payment_by' => $request->payment,
+            'arrival' => $request->arrival,
+            'departure' => $request->departure,
+            'stay' => $request->stay,
+            'amount' => $payed,
+        ];
+
+        $getReservation->update($data);
+
+        $data = ['status' => 'booked'];
+        Room::where('room_id', $request->room)->update($data);
+
+        $reservations = Reservation::with('Customer', 'Room')->get();
+        $rooms = Room::where('status', 'available')->get();
+        $customers = Customer::all();
+
+        return redirect('admin/reservations/')->with(
+            'reservations',
+            'rooms',
+            'customers'
+        );
+    }
+    public function findReservations(Request $request)
+    {
+        $getReservation = Reservation::where('id', $request->reservation_id)
+            ->with('Customer', 'Room')
+            ->first();
+
+        return $getReservation;
     }
 
     //reservations

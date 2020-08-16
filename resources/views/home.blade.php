@@ -108,7 +108,7 @@
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div
@@ -139,7 +139,7 @@
             </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            {{-- <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
 @endsection
