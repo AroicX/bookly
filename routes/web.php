@@ -41,5 +41,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/find', 'AdministratorController@findReservations');
         Route::post('/update', 'AdministratorController@updateReservations');
         Route::post('/create', 'AdministratorController@reservationsCreate');
+        Route::get(
+            '/delete/{id}',
+            'AdministratorController@reservationsDelete'
+        );
     });
 });

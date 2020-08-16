@@ -187,7 +187,7 @@ Reservations
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#" id="edit-{{$reservation->id}}">EDIT</a>
-                                        <a class="dropdown-item" href="#">DELETE</a>
+                                    <a class="dropdown-item" href="/admin/reservations/delete/{{$reservation->id}}">DELETE</a>
 
                                     </div>
                                 </div>

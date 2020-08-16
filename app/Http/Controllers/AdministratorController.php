@@ -160,6 +160,12 @@ class AdministratorController extends Controller
 
         return $getReservation;
     }
+    public function reservationsDelete(Request $request, $id)
+    {
+        Reservation::where('id', $request->id)->delete();
+
+        return redirect()->back();
+    }
 
     //reservations
 }

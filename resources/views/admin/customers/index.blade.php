@@ -94,7 +94,7 @@
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                   <a class="dropdown-item" href="#">EDIT</a>
-                                                  <a class="dropdown-item" href="#">DELETE </a>
+                                                  <a class="dropdown-item" href="#]">DELETE </a>
 
                                                 </div>
                                               </div>

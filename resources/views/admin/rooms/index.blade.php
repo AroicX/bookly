@@ -97,7 +97,7 @@
                                 <th>Floor</th>
                                 <th>Type</th>
                                 <th>Status</th>
-                                <th>Actions</th>
+                                {{-- <th>Actions</th> --}}
 
                             </tr>
                             </thead>
