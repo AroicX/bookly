@@ -162,6 +162,13 @@ class AdministratorController extends Controller
     }
     public function reservationsDelete(Request $request, $id)
     {
+        $getReservation = Reservation::where('id', $id)
+            ->with('Customer', 'Room')
+            ->first();
+
+        $data = ['status' => 'available'];
+        Room::where('room_id', $getReservation->room->room_id)->update($data);
+
         Reservation::where('id', $request->id)->delete();
 
         return redirect()->back();

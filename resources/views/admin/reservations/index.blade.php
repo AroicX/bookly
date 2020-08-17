@@ -132,7 +132,7 @@ Reservations
                                 <th>Room Price</th>
                                 <th>Floor</th>
                                 <th>Payment</th>
-                                <th>Stay</th>
+                                {{-- <th>Stay</th> --}}
                                 <th>Arried at</th>
                                 <th>To Depart at</th>
                                 <th>Amount</th>
@@ -165,7 +165,7 @@ Reservations
                             <td>₦ {{$reservation->Room->price}}</td>
                             <td>{{$reservation->Room->floor}}</td>
                             <td>{{$reservation->payment_by}}</td>
-                            <td>{{$reservation->stay}}</td>
+                            {{-- <td>{{$reservation->stay}}</td> --}}
                             <td>{{$reservation->arrival}}</td>
                             <td>{{$reservation->departure}}</td>
                             <td>₦ {{$reservation->amount}}</td>
