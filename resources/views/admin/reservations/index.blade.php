@@ -133,8 +133,8 @@ Reservations
                                 <th>Floor</th>
                                 <th>Payment</th>
                                 {{-- <th>Stay</th> --}}
-                                <th>Arried at</th>
-                                <th>To Depart at</th>
+                                <th>Arrival</th>
+                                <th>Departure</th>
                                 <th>Amount</th>
                                 <th>Room Status</th>
 

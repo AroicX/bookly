@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="number">Number</label>
+                    <label for="number">Phone Number</label>
                     <input type="text" class="form-control" name="number" >
                 </div>
 
@@ -64,7 +64,7 @@
                                 <th>Customer Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Number</th>
+                                <th>Phone Number</th>
                                 <th>Address</th>
                                 <th>Nigeria</th>
                                 <th>Gender</th>
