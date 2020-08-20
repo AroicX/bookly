@@ -110,7 +110,9 @@ Reservations
 @section('content')
 <div class="row " style="padding: 50px; position: relative">
     <div class="float-right">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New</button>
+       @if (Auth::user()->role === 'staff')
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New</button>
+       @endif
     </div>
     <div class="col-md-12 my-5">
 
@@ -121,7 +123,7 @@ Reservations
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" width="100%" cellspacing="0">
+                    <table id="datatable" class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -132,18 +134,18 @@ Reservations
                                 <th>Room Price</th>
                                 <th>Floor</th>
                                 <th>Payment</th>
-                                {{-- <th>Stay</th> --}}
+                                
                                 <th>Arrival</th>
                                 <th>Departure</th>
                                 <th>Amount</th>
                                 <th>Room Status</th>
+                                <th></th>
 
 
 
                             </tr>
                         </thead>
-                        <tfoot>
-                        </tfoot>
+                        
                         <tbody>
                             @if($reservations)
                             @foreach($reservations as $key => $reservation)

@@ -9,6 +9,10 @@ use App\Room;
 use App\User;
 use Illuminate\Http\Request;
 
+use Hash;
+
+use Session;
+
 class AdministratorController extends Controller
 {
     // staffs
@@ -175,4 +179,54 @@ class AdministratorController extends Controller
     }
 
     //reservations
+
+    public function profile()
+    {
+        return view('admin.profile.index');
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $cpassword = $request->input('cpass');
+        $newpassword = $request->input('newpass');
+        $cnewpassword = $request->input('cnewpass');
+
+        if (User::where('id', $id)) {
+            if (Hash::check($cpassword, Auth::user()->password, [])) {
+                if ($newpassword == $cnewpassword) {
+                    $data = [
+                        'password' => bcrypt($request->input('newpass')),
+                    ];
+
+                    User::where('id', $id)->update($data);
+
+                    $notification = [
+                        'message' =>
+                            'Successful... You Have Channged your Password !',
+                        'alert' => 'success',
+                    ];
+                    return redirect()
+                        ->back()
+                        ->with($notification);
+                } else {
+                    $notification = [
+                        'message' =>
+                            'New Password & Confirm Password No Match ',
+                        'alert' => 'info',
+                    ];
+                    return redirect()
+                        ->back()
+                        ->with($notification);
+                }
+            } else {
+                $notification = [
+                    'message' => 'Old Password is invaild ',
+                    'alert' => 'error',
+                ];
+                return redirect()
+                    ->back()
+                    ->with($notification);
+            }
+        }
+    }
 }

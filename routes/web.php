@@ -46,4 +46,9 @@ Route::group(['prefix' => 'admin'], function () {
             'AdministratorController@reservationsDelete'
         );
     });
+
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/', 'AdministratorController@profile');
+        Route::post('/password/{id}', 'AdministratorController@updatePassword');
+    });
 });
