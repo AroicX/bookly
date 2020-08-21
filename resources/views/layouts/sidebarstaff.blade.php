@@ -34,6 +34,13 @@
           <span>Customers</span></a>
   </li>
 
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('/admin/rooms')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Rooms</span></a>
+    </li>
+  
   <!-- Nav Item - Tables -->
   <li class="nav-item">
       <a class="nav-link" href="{{url('/admin/reservations')}}">
@@ -41,11 +48,6 @@
           <span>Reservations</span></a>
   </li>
   <!-- Nav Item - Tables -->
-  <li class="nav-item">
-      <a class="nav-link" href="{{url('/admin/reservations')}}">
-          <i class="fas fa-fw fa-money"></i>
-          <span>Payments</span></a>
-  </li>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
